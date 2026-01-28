@@ -1,0 +1,17 @@
+{
+  "name": "island-survivor",
+  "version": "1.0.0",
+  "description": "Игра-прототип в духе “SAO”: создаёшь персонажа без класса, выбираешь одно оружие ближнего боя, качаешь уровень и навык оружия, фармишь Коллы и лут с мобов. Перманентная смерть: умер — персонаж удаляется полностью.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ws": "^8.19.0"
+  }
+}

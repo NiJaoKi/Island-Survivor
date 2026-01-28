@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Island Survivor — текстовая RPG</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <div class="brand">
+          <div class="logo">IS</div>
+          <div>
+            <div class="title">Island Survivor</div>
+            <div class="subtitle">Текстовая браузерная RPG (перманентная смерть)</div>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button id="btnHardReset" class="btn btn-ghost" type="button" title="Удалить персонажа и прогресс">
+            Сбросить
+          </button>
+        </div>
+      </header>
+
+      <main class="grid">
+        <aside class="panel panel-info" aria-label="Информация">
+          <div class="panel-head">
+            <div class="panel-title">Инфо</div>
+          </div>
+          <div id="uiInfo" class="info-body">
+            <p class="small">
+              Подсказки и подробности по текущему действию будут появляться здесь.
+            </p>
+          </div>
+        </aside>
+
+        <section class="panel" aria-label="Сцена">
+          <div class="panel-head">
+            <div class="panel-title">Сцена</div>
+            <div class="hint">Твои решения — твой прогресс. Смерть удаляет персонажа.</div>
+          </div>
+          <div id="scene" class="scene"></div>
+
+          <div class="panel-foot">
+            <div id="actions" class="actions"></div>
+          </div>
+        </section>
+
+        <aside class="panel" aria-label="Персонаж">
+          <div class="panel-head">
+            <div class="panel-title">Персонаж</div>
+            <div id="saveBadge" class="badge">не сохранено</div>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="k">Имя</div>
+              <div id="uiName" class="v">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">Пол</div>
+              <div id="uiGender" class="v">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">Оружие</div>
+              <div id="uiWeapon" class="v">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">Уровень</div>
+              <div id="uiLevel" class="v">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">Опыт</div>
+              <div id="uiXp" class="v">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">HP</div>
+              <div id="uiHp" class="v">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">АТК</div>
+              <div id="uiAtk" class="v">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">ЗАЩ</div>
+              <div id="uiDef" class="v">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">Коллы</div>
+              <div id="uiMoney" class="v">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">СХ (свободно)</div>
+              <div id="uiSxFree" class="v">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">Профессия</div>
+              <div id="uiProfession" class="v">—</div>
+            </div>
+            <div class="stat">
+              <div class="k">Ур. профессии</div>
+              <div id="uiProfessionLevel" class="v">—</div>
+            </div>
+          </div>
+
+          <div class="split">
+            <section class="subpanel">
+              <div class="subhead">
+                <div class="subttl">Навык оружия</div>
+                <div id="uiWeaponSkill" class="pill">—</div>
+              </div>
+              <div class="small">
+                Навык растёт при победах и открывает удары, соответствующие выбранному оружию.
+              </div>
+              <div id="uiTechs" class="techs"></div>
+            </section>
+
+            <section class="subpanel">
+              <div class="subhead">
+                <div class="subttl">Инвентарь</div>
+                <div id="uiInvCount" class="pill">0</div>
+              </div>
+              <div id="uiInventory" class="inv"></div>
+            </section>
+
+            <section class="subpanel">
+              <div class="subhead">
+                <div class="subttl">Онлайн</div>
+                <div id="uiOnlineCount" class="pill">0</div>
+              </div>
+              <div id="uiOnlineList" class="small">
+                Оффлайн режим. Запусти сервер, чтобы видеть игроков.
+              </div>
+            </section>
+
+            <section class="subpanel">
+              <div class="subhead">
+                <div class="subttl">Чат</div>
+              </div>
+              <div id="uiChatLog" class="chat-log small">
+                Чтобы пользоваться чатом, запусти сервер и дождись подключения.
+              </div>
+              <div class="chat-input-row">
+                <input
+                  id="uiChatInput"
+                  class="chat-input"
+                  type="text"
+                  maxlength="240"
+                  placeholder="Написать в общий чат..."
+                />
+                <button id="uiChatSend" class="btn btn-primary" type="button">▶</button>
+              </div>
+            </section>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="foot">
+        <div class="small">
+          Подсказка: можно просто открыть `index.html`. Прогресс хранится локально. При смерти — стирается.
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>
+
